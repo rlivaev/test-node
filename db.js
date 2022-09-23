@@ -1,4 +1,19 @@
-const Pool = require("pg").Pool
-const pool = new Pool();
+import {Pool} from "pg"
 
-module.exports = pool
+const db = async () => {
+    try {
+        const pool = new Pool({
+            user: "postgres",
+            host: "localhost",
+            database: "testdb",
+            port: 5432
+        })
+        await client.connect()
+        console.log(res)
+        await client.end()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export default db;

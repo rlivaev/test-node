@@ -1,6 +1,11 @@
-class userController{
-    async createUser(req,res) {
+import db from "../db"
 
+class userController{
+
+    async createUser(req,res) {
+        const{firstName, lastName} = req.body;
+        console.log(firstName, lastName);
+        res.json("ok")
     }
     async getUser(req, res) {
 
@@ -13,4 +18,4 @@ class userController{
     }
 }
 
-module.exports = new userController()
+export default userController;

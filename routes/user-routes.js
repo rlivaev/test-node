@@ -1,10 +1,12 @@
-const Router = require ("express");
+import Router from "express";
 const router = new Router();
-const userController = require("../controller/user-controller")
+import userController from "../controller/user-controller.js";
 
-router.post("/user", userController.createUser)
-router.get("/get", userController.getUser)
-router.update("/update", userController.updateUser)
-router.delete("/delete", userController.deleteUser)
+router.post('/users', function(req, res){
+    userController.createUser
+});
+// router.get("/user/:id", userController.getUser)
+// router.put("/user", userController.updateUser)
+// router.delete("/user/:id", userController.deleteUser)
 
-module.exports = router;
+export default router;
