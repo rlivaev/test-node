@@ -1,6 +1,8 @@
-import {Pool} from "pg"
+import * as pg from 'pg';
+const { Pool } = pg;
 
 const db = async () => {
+    console.log("pepsi");
     try {
         const pool = new Pool({
             user: "postgres",

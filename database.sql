@@ -15,7 +15,7 @@ CREATE TABLE books(
     updatedAt TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 CREATE TABLE persons_books (
-    person_id int REFERENCES persons (person_id) ON UPDATE CASCADE ON DELETE CASCADE,
-    book_id int REFERENCES books (book_id) ON UPDATE CASCADE, 
+    person_id int REFERENCES persons (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    book_id int REFERENCES books (id) ON UPDATE CASCADE, 
     CONSTRAINT person_book_pkey PRIMARY KEY (person_id, book_id)
 );
