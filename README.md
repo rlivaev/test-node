@@ -9,3 +9,5 @@ Create, read, update and delete (as an acronym CRUD) are the four basic function
 - Express framework
 `$ npm install express --save`
 ***
+- create database 'testdb' manually using the command line
+- create tables with the code in the postgres.sql file

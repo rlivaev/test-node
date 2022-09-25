@@ -2,7 +2,7 @@ import db from "../db.js"
 
 export const getUsers = async (req, res) => {
     const users = await db.query(`SELECT * FROM  persons`)
-    res.status(200).json({ users: users.rows })
+    res.status(200).json({ users: users.rows})
 };
 
 export const addUser = async (req, res) => {
@@ -14,7 +14,8 @@ export const addUser = async (req, res) => {
         }
         res.status(201).send(`User added with ID: ${results.rows[0].id}`)
     })
-}
+};
+
 export const deleteUser = async (req, res) => {
     const id = req.params.id;
     await db.query(`DELETE FROM persons where id = $1`, [id])
