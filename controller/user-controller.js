@@ -12,18 +12,17 @@ export const addUser = async (req, res) => {
         if (error) {
             console.log(error)
         }
-        console.log(results.rows[0])
         res.status(201).send(`User added with ID: ${results.rows[0].id}`)
     })
 }
 export const deleteUser = async (req, res) => {
-    const id = req.body;
-    const users = await db.query(`DELETE FROM persons where id = $1`,[id])
-    res.status(200).json({ users: users.rows })
+    const id = req.params.id;
+    await db.query(`DELETE FROM persons where id = $1`, [id])
+    res.status(201).send("User was deleted!")
 };
 
 export const updateUser = async (req, res) => {
-    const {id, firsName,lastName} = req.body;
-    const users = await db.query(`UPDATE persons SET firsName= ?, lastName=? WHERE id=1`, [firsName,lastName, id]);
-    res.status(200).json({ users: users.rows })
+    const {id, firstName, lastName, age} = req.body;
+    await db.query(`UPDATE persons SET firstName=$1, lastName=$2, age=$3 WHERE id=$4`, [firstName, lastName, age, id]);
+    res.status(200).send("User was updated!")
 };
